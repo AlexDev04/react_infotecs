@@ -1,0 +1,40 @@
+@import '../../../styles/index'
+@mixin input()
+    font-family: Inter
+    height: 24px
+
+@mixin textArea($type)
+    font-family: Inter
+    resize: none
+    border: 1px solid $type
+    box-sizing: border-box
+
+.searchBar
+    outline: none
+    @include input()
+    resize: none
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    padding: 5px 10px
+    background: #FFFFFF
+    box-shadow: inset 0px 0px 2px 1px $shadow
+    border-radius: 3px
+    border: 1px solid $default
+    box-sizing: border-box
+
+    &:invalid
+        border: none
+
+    &:hover
+        resize: none
+        border: 1px solid $default-hov
+        box-sizing: border-box
+
+    &:focus
+            resize: none
+            border: 1px solid $main
+            box-sizing: border-box
+
+    &::-webkit-input-placeholder
+        color: $label-text
