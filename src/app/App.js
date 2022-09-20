@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchBar, But, TodoList, EditWindow } from '../components'
+import { TextInput, But, TodoList, EditWindow } from '../components'
 import logo from '../images/logo.svg';
 import './App.sass';
 
@@ -27,12 +27,23 @@ function App() {
         }
     ])
 
+    // Стейт, который хранит todo после поиска (нужен для работы поисковой строки без кнопки "поиск")
+    const [searchedTodos, setSearchedTodos] = useState(todos)
+
     // Стейт, который хранит открытую todo, если таковая имеется
     const [openedTask, setOpenedTask] = useState(0)
+
+    // Стейт, который хранит поисковый запрос
+    const [search, setSearch] = useState('')
 
     // Бесконечный индекса новой todo, который создает ее на основе индекса предыдущей
     function generateInd() {
         return todos.length
+    }
+
+    const handleSearch = (val) => {
+        setSearch(val)
+        setSearchedTodos(todos.filter(todo => todo.title.startsWith(val)))
     }
 
     return (
@@ -40,8 +51,8 @@ function App() {
 
             {/* Левая секция со всеми todo */}
             <section className="todo_bar">
-                <SearchBar placeholder="Search" />
-                <TodoList todos={todos} setTodos={setTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
+                <TextInput placeholder="Search" value={search} onChange={handleSearch} />
+                <TodoList todos={searchedTodos} setTodos={setTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
                 <But temp="default" onClick={() => {
                     setOpenedTask(generateInd())
                 }}>Add todo</But>

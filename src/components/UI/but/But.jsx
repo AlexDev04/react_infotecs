@@ -3,8 +3,11 @@ import './But.sass';
 
 
 
-export const But = ({props, children, temp, onClick}) => {
+export const But = props => {
+
+    const {onClick, ...params} = props
+
     return(
-        <button{...props} className={'but-' + temp} onClick={onClick}>{children}</button>
+        <button className={'but-' + params.temp} onClick={onClick}>{params.children}</button>
     )
 }

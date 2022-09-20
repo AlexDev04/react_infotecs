@@ -4,7 +4,9 @@ import { But } from '../../components'
 
 
 
-export const TodoItem = ({ title, status, taskId, opened, setOpenedTask }) => {
+export const TodoItem = props => {
+
+    const { title, status, taskId, opened, setOpenedTask, ...params } = props
 
     const isActive = opened? 'active': ''
 
@@ -13,7 +15,7 @@ export const TodoItem = ({ title, status, taskId, opened, setOpenedTask }) => {
             <h3>{title}</h3>
             <p>{status}</p>
             <div className="todoItem_control">
-                <But temp="default" onClick={() => setOpenedTask(taskId)}>Редактировать</But>
+                <But temp="default" onClick={() => setOpenedTask(taskId)}>Edit</But>
             </div>
         </div>
     )

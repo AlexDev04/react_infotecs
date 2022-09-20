@@ -1,9 +1,12 @@
 import React from "react";
+import { TextInput } from "../UI";
 import './EditWindow.sass';
 
 
 
-export const EditWindow = ({props, children, className, taskId, todos}) => {
+export const EditWindow = props => {
+
+    const {className, taskId, todos, ...params} = props
 
     let operation
     if(taskId == todos.length) {
@@ -22,8 +25,8 @@ export const EditWindow = ({props, children, className, taskId, todos}) => {
     return(
         <section className={"editWindow " + className}>
             <h2>{operation}</h2>
-            <h3>{getTitle()}</h3>
-            <p>{getDescription()}</p>
+            <TextInput value={getTitle()} placeholder="Title" />
+            <textarea value={getDescription()} />
         </section>
     )
 }
