@@ -10,16 +10,18 @@ export const TextInput = props => {
     // Стейт, который хранит то, что записано в инпуте
     const [val, setVal] = useState(params.value)
 
-    const handleChange = (evt) => {
-        setVal(evt.target.value)
-        params.onChange(val)
+    const handleChange = (value) => {
+        console.log('handleChange')
+        console.log(value)
+        setVal(value)
+        params.onChange(value)
     }
 
     return(
         <div>
-        <input type="text" onChange={handleChange} className="searchBar" placeholder={placeholder} value={val}>
+        <input type="text" onChange={evt => handleChange(evt.target.value)} className="searchBar" placeholder={placeholder} value={val}>
         </input>
-        <button onClick={() => setVal('')}>Clear</button>
+        <button onClick={() => handleChange('')}>Clear</button>
         </div>
 
     )

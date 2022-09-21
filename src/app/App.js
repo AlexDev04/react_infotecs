@@ -42,6 +42,8 @@ function App() {
     }
 
     const handleSearch = (val) => {
+        console.log('handleSearch')
+        console.log(val)
         setSearch(val)
         setSearchedTodos(todos.filter(todo => todo.title.startsWith(val)))
     }
