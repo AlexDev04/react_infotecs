@@ -1,9 +1,18 @@
 @import '../../../styles/index'
+@mixin input()
+    font-family: Inter
+    height: 24px
 
-.textInput
+@mixin textArea($type)
+    font-family: Inter
+    resize: none
+    border: 1px solid $type
+    box-sizing: border-box
+
+.textArea
     outline: none
     @include input()
-    @include textArea($default)
+    resize: none
     display: flex
     flex-direction: row
     align-items: flex-start
@@ -11,6 +20,8 @@
     background: #FFFFFF
     box-shadow: inset 0px 0px 2px 1px $shadow
     border-radius: 3px
+    border: 1px solid $default
+    box-sizing: border-box
 
     &:invalid
         border: none

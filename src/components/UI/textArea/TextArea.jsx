@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import './TextInput.sass';
+import './TextArea.sass';
 
 
 
-export const TextInput = props => {
+export const TextArea = props => {
 
     const {placeholder, ...params} = props
 
@@ -23,14 +23,13 @@ export const TextInput = props => {
 
     return(
         <div>
-        <input
+        <textarea
             type="text"
             onChange={evt => handleChange(evt.target.value)}
-            className="textInput"
-            placeholder={placeholder}
+            className="searchBar" placeholder={placeholder}
             value={val}
         >
-        </input>
+        </textarea>
         <button onClick={() => handleChange('')}>Clear</button>
         </div>
 

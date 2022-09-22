@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TextInput, But, TodoList, EditWindow } from '../components'
 import logo from '../images/logo.svg';
 import './App.sass';
@@ -48,6 +48,10 @@ function App() {
         setSearchedTodos(todos.filter(todo => todo.title.startsWith(val)))
     }
 
+    useEffect(() => {
+        setSearchedTodos(todos)
+    }, [todos])
+
     return (
         <div className="todo">
 
@@ -61,7 +65,7 @@ function App() {
             </section>
 
             {/* Правая секция с открытой todo */}
-            <EditWindow taskId={openedTask} todos={todos} className="todo_window"/>
+            <EditWindow taskId={openedTask} todos={todos} setTodos={setTodos} className="todo_window"/>
 
         </div>
 

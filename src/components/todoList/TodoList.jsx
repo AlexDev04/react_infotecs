@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './TodoList.sass';
 import { TodoItem } from "../todoItem";
 
 
 
-export const TodoList = ({props, children, todos, setTodos, openedTask, setOpenedTask}) => {
+export const TodoList = ({todos, openedTask, setOpenedTask}) => {
 
     console.log(todos)
     console.log(openedTask)
