@@ -6,8 +6,7 @@ import './EditWindow.sass';
 
 export const EditWindow = props => {
 
-    const {className, taskId, todos, ...params} = props
-
+    const {className, taskId, todos, setOpenedTask, ...params} = props
     
     let operation
     
@@ -19,15 +18,20 @@ export const EditWindow = props => {
     // Getters
 
     const getTitle = () => {
-        return operation.startsWith('Edit') && todos.find(todo => todo.id == taskId).title || ''
+        console.log(operation)
+        console.log(taskId)
+        if(operation != 'Add task') return todos.find(todo => todo.id == taskId).title
+        else return ''
     }
 
     const getDescription = () => {
-        return operation.startsWith('Edit') && todos.find(todo => todo.id == taskId).description || ''
+        if(operation != 'Add task') return todos.find(todo => todo.id == taskId).description
+        else return ''
     }
 
     const getStatus = () => {
-        return operation.startsWith('Edit') && todos.find(todo => todo.id == taskId).status || ''
+        if(operation != 'Add task') return todos.find(todo => todo.id == taskId).status
+        else return ''
     }
 
     // Стейт, который хранит заголовок
@@ -51,7 +55,9 @@ export const EditWindow = props => {
             newTodos.push({title, description, status, id: taskId})
             params.setTodos(newTodos)
             console.log('pushed')
+            operation = `Edit task ${taskId}`
         }
+        setOpenedTask(0)
         // params.setTodos()
     }
 
@@ -60,6 +66,7 @@ export const EditWindow = props => {
         setDescription(getDescription())
         setStatus(getStatus())
     }, [taskId])
+
 
     return(
         <section className={"editWindow " + className}>

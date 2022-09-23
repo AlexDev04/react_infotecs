@@ -50,7 +50,8 @@ function App() {
 
     useEffect(() => {
         setSearchedTodos(todos)
-    }, [todos])
+        console.log(todos)
+    })
 
     return (
         <div className="todo">
@@ -58,14 +59,21 @@ function App() {
             {/* Левая секция со всеми todo */}
             <section className="todo_bar">
                 <TextInput placeholder="Search" value={search} onChange={handleSearch} />
-                <TodoList todos={searchedTodos} setTodos={setTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
+                <TodoList todos={searchedTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
                 <But temp="default" onClick={() => {
                     setOpenedTask(generateInd())
                 }}>Add todo</But>
+                <p>{searchedTodos.length}</p>
             </section>
 
             {/* Правая секция с открытой todo */}
-            <EditWindow taskId={openedTask} todos={todos} setTodos={setTodos} className="todo_window"/>
+            <EditWindow
+                taskId={openedTask}
+                todos={todos}
+                setTodos={setTodos}
+                className="todo_window"
+                setOpenedTask={setOpenedTask}
+            />
 
         </div>
 
