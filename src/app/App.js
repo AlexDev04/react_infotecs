@@ -10,19 +10,19 @@ function App() {
         {
             id: 0,
             title: 'Make light web-app using Vue.js without any APIs',
-            status: 'wait',
+            status: 'Waiting',
             description: 'some text some text some text some text some text some text some text some text some text some text some text some text'
         },
         {
             id: 1,
             title: 'Restruct app #83',
-            status: 'inProgress',
+            status: 'In progress',
             description: 'some text some text some text some text some text some text some text some text some text some text some text some text'
         },
         {
             id: 2,
             title: 'Connect data base to our new app',
-            status: 'done',
+            status: 'Done',
             description: 'some text some text some text some text some text some text some text some text some text some text some text some text'
         }
     ])
@@ -46,12 +46,13 @@ function App() {
         console.log(val)
         setSearch(val)
         setSearchedTodos(todos.filter(todo => todo.title.startsWith(val)))
+        setOpenedTask(0)
     }
 
     useEffect(() => {
         setSearchedTodos(todos)
         console.log(todos)
-    })
+    }, [todos])
 
     return (
         <div className="todo">

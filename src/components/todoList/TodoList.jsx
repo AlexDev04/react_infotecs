@@ -13,7 +13,7 @@ export const TodoList = ({todos, openedTask, setOpenedTask}) => {
 
     useEffect(() => {
         setList(todos)
-    }, [openedTask])
+    })
 
     return(
         <div className="todoList">

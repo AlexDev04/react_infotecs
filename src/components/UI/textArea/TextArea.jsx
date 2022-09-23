@@ -26,7 +26,7 @@ export const TextArea = props => {
         <textarea
             type="text"
             onChange={evt => handleChange(evt.target.value)}
-            className="searchBar" placeholder={placeholder}
+            className="textArea" placeholder={placeholder}
             value={val}
         >
         </textarea>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { But, TextArea, TextInput } from "../UI";
+import { But, Dropdown, TextArea, TextInput } from "../UI";
 import './EditWindow.sass';
 
 
@@ -72,7 +72,8 @@ export const EditWindow = props => {
         <section className={"editWindow " + className}>
             <h2>{operation}</h2>
             <TextInput value={title} placeholder="Title" onChange={setTitle} />
-            <TextArea value={description} onChange={setDescription} />
+            <TextArea value={description} placeholder="Description" onChange={setDescription} />
+            <Dropdown name="Status" updateData={setStatus} val={getStatus()} placeholder="Status" list={['Waiting', 'In progress', 'Done']} />
             <But temp="default" onClick={editTask}>Save</But>
         </section>
     )
