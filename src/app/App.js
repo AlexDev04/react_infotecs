@@ -30,7 +30,7 @@ function App() {
     const [searchedTodos, setSearchedTodos] = useState(todos)
 
     // Стейт, который хранит открытую todo, если таковая имеется
-    const [openedTask, setOpenedTask] = useState(0)
+    const [openedTask, setOpenedTask] = useState(-1)
 
     // Стейт, который хранит поисковый запрос
     const [search, setSearch] = useState('')
@@ -45,7 +45,7 @@ function App() {
         console.log(val)
         setSearch(val)
         setSearchedTodos(todos.filter(todo => todo.title.startsWith(val)))
-        setOpenedTask(0)
+        setOpenedTask(-1)
     }
 
     useEffect(() => {
@@ -55,7 +55,7 @@ function App() {
 
     return (
         <div className="app">
-            <Header />
+            <Header home={setOpenedTask} />
             <section className="todo">
                 {/* Левая секция со всеми todo */}
                 <div className="todo_bar">
@@ -68,6 +68,7 @@ function App() {
                 </div>
 
                 {/* Правая секция с открытой todo */}
+                { openedTask >= 0 &&
                 <EditWindow
                     taskId={openedTask}
                     todos={todos}
@@ -75,6 +76,7 @@ function App() {
                     className="todo_window"
                     setOpenedTask={setOpenedTask}
                 />
+                }
             </section>
             <Footer />
         </div>

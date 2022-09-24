@@ -46,8 +46,10 @@ export const EditWindow = props => {
     const editTask = () => {
         console.log(todos.length > taskId)
         if(todos.length > taskId) {
+            let newTodos = todos
             let elem = {title, description, status, id: taskId}
-            todos[taskId] = elem
+            newTodos[taskId] = elem
+            params.setTodos(newTodos)
             console.log('edited')
         }
         else {
@@ -57,7 +59,7 @@ export const EditWindow = props => {
             console.log('pushed')
             operation = `Edit task ${taskId}`
         }
-        setOpenedTask(0)
+        setOpenedTask(-1)
         // params.setTodos()
     }
 
