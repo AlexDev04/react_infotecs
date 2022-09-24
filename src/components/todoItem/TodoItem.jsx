@@ -1,6 +1,6 @@
 import React from "react";
 import './TodoItem.sass';
-import { But } from '../../components'
+import { But, TaskStatus } from '../../components'
 
 
 
@@ -13,7 +13,7 @@ export const TodoItem = props => {
     return(
         <div className={"todoItem " + isActive}>
             <h3 className="todoItem_title">{title}</h3>
-            <p className="todoItem_status">{status}</p>
+            <TaskStatus status={status} />
             <div className="todoItem_control">
                 <But temp="default" onClick={() => setOpenedTask(taskId)}>Edit</But>
             </div>
