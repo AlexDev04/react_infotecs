@@ -69,12 +69,12 @@ export const EditWindow = props => {
 
 
     return(
-        <section className={"editWindow " + className}>
+        <div className={"editWindow " + className}>
             <h2>{operation}</h2>
             <TextInput value={title} placeholder="Title" onChange={setTitle} />
             <TextArea value={description} placeholder="Description" onChange={setDescription} />
             <Dropdown name="Status" updateData={setStatus} val={getStatus()} placeholder="Status" list={['Waiting', 'In progress', 'Done']} />
             <But temp="default" onClick={editTask}>Save</But>
-        </section>
+        </div>
     )
 }

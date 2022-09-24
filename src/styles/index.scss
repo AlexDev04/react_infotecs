@@ -22,7 +22,6 @@ $darked: #32363e;
 $main: #61dafb;
 
 @mixin textArea($type) {
-  font-family: Inter;
   resize: none;
   // border: 1px solid $type;
   border: 1px solid #FFFFFF;
@@ -30,7 +29,6 @@ $main: #61dafb;
 }
 
 @mixin input() {
-  font-family: Inter;
   height: 24px
 }
 
@@ -38,9 +36,6 @@ $main: #61dafb;
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,7 +46,6 @@ code {
 }
 
 html {
-  font-family: Roboto;
   color: $text-color;
   font-size: 16px
 }

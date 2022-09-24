@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TextInput, But, TodoList, EditWindow } from '../components'
-import logo from '../images/logo.svg';
+import { TextInput, But, TodoList, EditWindow, Header, Footer } from '../components'
 import './App.sass';
 
 function App() {
@@ -55,27 +54,29 @@ function App() {
     }, [todos])
 
     return (
-        <div className="todo">
+        <div className="app">
+            <Header />
+            <section className="todo">
+                {/* Левая секция со всеми todo */}
+                <div className="todo_bar">
+                    <TextInput placeholder="Search" value={search} onChange={handleSearch} />
+                    <TodoList todos={searchedTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
+                    <But temp="default" onClick={() => {
+                        setOpenedTask(generateInd())
+                    }}>Add todo</But>
+                    <p>{searchedTodos.length}</p>
+                </div>
 
-            {/* Левая секция со всеми todo */}
-            <section className="todo_bar">
-                <TextInput placeholder="Search" value={search} onChange={handleSearch} />
-                <TodoList todos={searchedTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
-                <But temp="default" onClick={() => {
-                    setOpenedTask(generateInd())
-                }}>Add todo</But>
-                <p>{searchedTodos.length}</p>
+                {/* Правая секция с открытой todo */}
+                <EditWindow
+                    taskId={openedTask}
+                    todos={todos}
+                    setTodos={setTodos}
+                    className="todo_window"
+                    setOpenedTask={setOpenedTask}
+                />
             </section>
-
-            {/* Правая секция с открытой todo */}
-            <EditWindow
-                taskId={openedTask}
-                todos={todos}
-                setTodos={setTodos}
-                className="todo_window"
-                setOpenedTask={setOpenedTask}
-            />
-
+            <Footer />
         </div>
 
     );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import './Dropdown.sass';
 import '../../../styles/index.scss'
 import closedDropdown from '../../../images/closedDropdown.svg';
