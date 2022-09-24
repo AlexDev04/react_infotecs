@@ -12,8 +12,8 @@ export const TodoItem = props => {
 
     return(
         <div className={"todoItem " + isActive}>
-            <h3>{title}</h3>
-            <p>{status}</p>
+            <h3 className="todoItem_title">{title}</h3>
+            <p className="todoItem_status">{status}</p>
             <div className="todoItem_control">
                 <But temp="default" onClick={() => setOpenedTask(taskId)}>Edit</But>
             </div>
