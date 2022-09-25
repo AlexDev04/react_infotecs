@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import './TextArea.sass';
+import React, { useEffect, useState } from "react"
+import './TextArea.sass'
+import { But } from "../but"
 
 
 
@@ -22,7 +23,7 @@ export const TextArea = props => {
     }
 
     return(
-        <div>
+        <div className="textArea_outer">
         <textarea
             type="text"
             onChange={evt => handleChange(evt.target.value)}
@@ -30,7 +31,7 @@ export const TextArea = props => {
             value={val}
         >
         </textarea>
-        <button onClick={() => handleChange('')}>Clear</button>
+        <But temp="default" onClick={() => handleChange('')}>Clear</But>
         </div>
 
     )

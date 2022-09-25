@@ -1,13 +1,4 @@
 @import '../../../styles/index'
-@mixin input()
-    font-family: Inter
-    height: 24px
-
-@mixin textArea($type)
-    font-family: Inter
-    resize: none
-    border: 1px solid $type
-    box-sizing: border-box
 
 .textArea
     outline: none
@@ -19,9 +10,17 @@
     padding: 5px 10px
     background: #FFFFFF
     box-shadow: inset 0px 0px 2px 1px $shadow
-    border-radius: 3px
-    border: 1px solid $default
+    border-radius: 5px
+    border: 1px solid $shadow
     box-sizing: border-box
+
+    &_outer
+        display: flex
+        justify-content: center
+        align-items: center
+
+        *
+            margin: 0 2%
 
     &:invalid
         border: none

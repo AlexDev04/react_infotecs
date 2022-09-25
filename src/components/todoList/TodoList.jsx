@@ -17,7 +17,8 @@ export const TodoList = ({todos, openedTask, setOpenedTask}) => {
 
     return(
         <div className="todoList">
-            {list.map( todo => (
+            {list.length? list.map( todo => (
+                todo.id != undefined &&
                 <TodoItem
                     setOpenedTask={setOpenedTask}
                     opened={todo.id === openedTask}
@@ -26,7 +27,7 @@ export const TodoList = ({todos, openedTask, setOpenedTask}) => {
                     title={todo.title}
                     status={todo.status}
                 />
-            ))
+            )): <div>No todos found</div>
             }
         </div>
     )

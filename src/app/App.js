@@ -61,10 +61,9 @@ function App() {
                 <div className="todo_bar">
                     <TextInput placeholder="Search" value={search} onChange={handleSearch} />
                     <TodoList todos={searchedTodos} openedTask={openedTask} setOpenedTask={setOpenedTask}/>
-                    <But temp="default" onClick={() => {
+                    <But temp="success" onClick={() => {
                         setOpenedTask(generateInd())
                     }}>Add todo</But>
-                    <p>{searchedTodos.length}</p>
                 </div>
 
                 {/* Правая секция с открытой todo */}

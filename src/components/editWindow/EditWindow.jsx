@@ -63,6 +63,14 @@ export const EditWindow = props => {
         // params.setTodos()
     }
 
+    const deleteTask = () => {
+        let newTodos = todos
+        newTodos[taskId] = {}
+        console.log(newTodos)
+        params.setTodos(newTodos)
+        setOpenedTask(-1)
+    }
+
     useEffect(() => {
         setTitle(getTitle())
         setDescription(getDescription())
@@ -73,10 +81,14 @@ export const EditWindow = props => {
     return(
         <div className={"editWindow " + className}>
             <h2>{operation}</h2>
-            <TextInput value={title} placeholder="Title" onChange={setTitle} />
+            <TextArea value={title} placeholder="Title" onChange={setTitle} />
             <TextArea value={description} placeholder="Description" onChange={setDescription} />
             <Dropdown name="Status" updateData={setStatus} val={getStatus()} placeholder="Status" list={['Waiting', 'In progress', 'Done']} />
+            <div className="editWindow_btns">
             <But temp="default" onClick={editTask}>Save</But>
+            {operation != 'Add task' && <But temp="error" onClick={deleteTask}>Delete</But>}
+            </div>
+
         </div>
     )
 }

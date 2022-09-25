@@ -41,7 +41,7 @@ export const Dropdown = props => {
     return(
         <div className={`dropdown-outer ${className}`}>
             <div className={`${opened && 'dropdown'} ${dis && 'dropdown-dis'}`} onClick={handleOpen}>
-                <div className={`${!dis && 'dropdown-label'} ${opened && 'dropdown-label-active'} ${selected != undefined && 'dropdown-label-active'}`}>
+                <div className={`${!dis && 'dropdown-label'} ${opened && 'dropdown-label-opened'} ${selected != undefined && 'dropdown-label-active'}`}>
                     <p>{selected || placeholder}</p>
                     {!dis && <img src={img} />}
                 </div>

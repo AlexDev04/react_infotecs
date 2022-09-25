@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import './TextInput.sass';
+import React, { useEffect, useState } from "react"
+import './TextInput.sass'
+import { But } from "../but"
 
 
 
@@ -22,16 +23,16 @@ export const TextInput = props => {
     }
 
     return(
-        <div>
-        <input
-            type="text"
-            onChange={evt => handleChange(evt.target.value)}
-            className="textInput"
-            placeholder={placeholder}
-            value={val}
-        >
-        </input>
-        <button onClick={() => handleChange('')}>Clear</button>
+        <div className="textInput_outer">
+            <input
+                type="text"
+                onChange={evt => handleChange(evt.target.value)}
+                className="textInput"
+                placeholder={placeholder}
+                value={val}
+            >
+            </input>
+            <But temp="default" onClick={() => handleChange('')}>Clear</But>
         </div>
 
     )
