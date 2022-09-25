@@ -39,14 +39,14 @@ export const Dropdown = props => {
     console.log(selected)
 
     return(
-        <div className={`dropdown-outer ${className}`}>
-            <div className={`${opened && 'dropdown'} ${dis && 'dropdown-dis'}`} onClick={handleOpen}>
-                <div className={`${!dis && 'dropdown-label'} ${opened && 'dropdown-label-opened'} ${selected != undefined && 'dropdown-label-active'}`}>
+        <div className={`dropdown_outer ${className}`}>
+            <div className={`${opened && 'dropdown'} ${dis && 'dropdown_dis'}`} onClick={handleOpen}>
+                <div className={`${!dis && 'dropdown_label'} ${opened && 'dropdown_label-opened'} ${selected != undefined && 'dropdown-label-active'}`}>
                     <p>{selected || placeholder}</p>
                     {!dis && <img src={img} />}
                 </div>
-                <div className={`dropdown-content ${!opened && 'hidden'}`} onClick={handleChange}>
-                    {list.map(el => <div onClick={handleChange} className="dropdown-content-el" key={el}>{el}</div>)}
+                <div className={`dropdown_content ${!opened && 'hidden'}`} onClick={handleChange}>
+                    {list.map(el => <div onClick={handleChange} className="dropdown_content-el" key={el}>{el}</div>)}
                 </div>
             </div>
         </div>
