@@ -44,7 +44,7 @@ function App() {
         console.log('handleSearch')
         console.log(val)
         setSearch(val)
-        setSearchedTodos(todos.filter(todo => todo.title.startsWith(val)))
+        setSearchedTodos(todos.filter(todo => todo.id != undefined && todo.title.startsWith(val)))
         setOpenedTask(-1)
     }
 
