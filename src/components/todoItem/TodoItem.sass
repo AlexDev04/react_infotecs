@@ -1,0 +1,41 @@
+@import '../../styles/index'
+    
+.todoItem
+    border: 1px solid $default
+    width: 70%
+    border-radius: 5px
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    flex-shrink: 10
+    margin: 1%
+    padding: 0 5%
+    cursor: pointer
+    border: 1px solid $shadow
+    box-shadow: inset 0px 0px 2px 1px $shadow
+
+    &:hover
+        border: 1px solid $main
+        box-shadow: inset 0px 0px 2px 1px $main
+
+    &:hover h3
+        text-decoration: underline
+
+    &.active
+
+        h3
+            color: $main
+        
+
+
+    &_title
+        white-space: nowrap // Запрещаем перенос текста на вторую строку
+        overflow: hidden // Обрезаем все, что выходит за границу
+        text-overflow: ellipsis // Добавляем многоточие
+
+    &_data
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 20%

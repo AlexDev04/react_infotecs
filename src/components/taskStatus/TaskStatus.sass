@@ -1,0 +1,27 @@
+@import '../../styles/index'
+
+@mixin status($bgCol, $col )
+    font-size: 14px
+    width: max-content
+    height: 20px
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    padding: 2px 10px
+    box-sizing: border-box
+    border-radius: 5px
+    background-color: $bgCol
+    border: 1px solid $col
+    color: $col
+    white-space: nowrap
+    
+.status_gray
+    @include status($shadow, $text-color)
+    
+
+.status_blue
+    @include status(#93c7ff, #2549ca)
+
+.status_green
+    @include status(#4BD379 , #157536)

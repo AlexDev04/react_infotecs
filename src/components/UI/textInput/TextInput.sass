@@ -1,0 +1,37 @@
+@import '../../../styles/index'
+
+.textInput
+    outline: none
+    @include input()
+    @include textArea($default)
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    padding: 5px 10px
+    background: #FFFFFF
+    box-shadow: inset 0px 0px 2px 1px $shadow
+    border-radius: 5px
+
+    &_outer
+        display: flex
+        justify-content: center
+        align-items: center
+
+        *
+            margin: 0 2%
+
+    &:invalid
+        border: none
+
+    &:hover
+        resize: none
+        border: 1px solid $default-hov
+        box-sizing: border-box
+
+    &:focus
+            resize: none
+            border: 1px solid $main
+            box-sizing: border-box
+
+    &::-webkit-input-placeholder
+        color: $label-text
