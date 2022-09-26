@@ -48,6 +48,7 @@ function App() {
         setOpenedTask(-1)
     }
 
+    // Обновляем массив найденных задач сразу после рендера компонента
     useEffect(() => {
         setSearchedTodos(todos)
         console.log(todos)

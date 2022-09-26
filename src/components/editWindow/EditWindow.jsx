@@ -6,10 +6,12 @@ import './EditWindow.sass';
 
 export const EditWindow = props => {
 
+    // Вытаскиваем пропсы
     const {className, taskId, todos, setOpenedTask, ...params} = props
     
     let operation
-    
+
+    // Определяем тип операции
     if(taskId == todos.length) {
         operation = 'Add task'
     }
@@ -43,6 +45,7 @@ export const EditWindow = props => {
     // Стейт, который хранит статус
     const [status, setStatus] = useState(getStatus())
 
+    // Функция изменения или добавления задачи
     const editTask = () => {
         console.log(todos.length > taskId)
         if(todos.length > taskId) {
@@ -60,9 +63,9 @@ export const EditWindow = props => {
             operation = `Edit task ${taskId}`
         }
         setOpenedTask(-1)
-        // params.setTodos()
     }
 
+    // Функция удаления задачи
     const deleteTask = () => {
         let newTodos = todos
         newTodos[taskId] = {}
@@ -71,6 +74,7 @@ export const EditWindow = props => {
         setOpenedTask(-1)
     }
 
+    // После обновления пропса записываем в стейт новую задачу
     useEffect(() => {
         setTitle(getTitle())
         setDescription(getDescription())
